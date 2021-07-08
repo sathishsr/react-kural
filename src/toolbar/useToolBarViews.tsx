@@ -17,6 +17,11 @@ import Drawer from "@material-ui/core/Drawer";
 import Hidden from "@material-ui/core/Hidden";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import { ToolBarStrings } from "../constants/strings";
+import {
+  filterMenuTitle,
+  filterSections,
+} from "../Util.ts/MenuDrawerDataHelper";
+import PinnedSubheaderList from "../menu/MenuList";
 
 export const useToolBarViews = (): {
   mobileOpen: boolean;
@@ -106,16 +111,7 @@ const drawer = (classes: any) => {
     <div>
       <div className={classes.toolbar} />
       <Divider />
-      <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      <PinnedSubheaderList />
     </div>
   );
 };
