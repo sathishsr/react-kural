@@ -8,6 +8,7 @@ import KeyboardArrowUpIcon from "@material-ui/icons/KeyboardArrowUp";
 import Zoom from "@material-ui/core/Zoom";
 import { useToolBarViews } from "./useToolBarViews";
 import { useToolBarStyles } from "./useToolBarStyles";
+import '../App.css';
 
 interface Props {
   window?: () => Window;
@@ -62,7 +63,7 @@ export default function ToolBarView(props: Props) {
       {appBarView}
       {sideMenu}
       <Toolbar id="back-to-top-anchor" />
-      <Container>{children}</Container>
+      <Container disableGutters maxWidth={false} className="container">{children}</Container>
       {renderScrollToTopView(props)}
     </React.Fragment>
   );

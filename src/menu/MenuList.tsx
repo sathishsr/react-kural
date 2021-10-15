@@ -4,7 +4,9 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListSubheader from "@material-ui/core/ListSubheader";
-import { filterMenuTitle } from "../Util.ts/MenuDrawerDataHelper";
+import { filterMenuTitle } from "../Util/MenuDrawerDataHelper";
+import { AppContext } from "../context/context";
+import { Types } from "../context/reducers";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -32,7 +34,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function PinnedSubheaderList() {
   const classes = useStyles();
-
+  const { state, dispatch } = React.useContext(AppContext);
   return (
     <List className={classes.root} subheader={<li />}>
       {filterMenuTitle().map((data) => (
@@ -44,13 +46,15 @@ export default function PinnedSubheaderList() {
             >
               {data?.name}
             </ListSubheader>
-            {data?.chapter !== undefined &&
-              data?.chapter.map((item) => (
+            {data?.chapterGroup !== undefined &&
+              data?.chapterGroup.map((item) => (
                 <ListItem
                   key={`item-${item.name}`}
                   button
                   onClick={() => {
-                    console.log(item);
+                    if (item) {
+                      dispatch({ type: Types.Create, payload: { sectionDetail: item, selected: true } })
+                    }
                   }}
                 >
                   <ListItemText primary={item.name} />

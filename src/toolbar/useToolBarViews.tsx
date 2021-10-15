@@ -20,7 +20,7 @@ import { ToolBarStrings } from "../constants/strings";
 import {
   filterMenuTitle,
   filterSections,
-} from "../Util.ts/MenuDrawerDataHelper";
+} from "../Util/MenuDrawerDataHelper";
 import PinnedSubheaderList from "../menu/MenuList";
 
 export const useToolBarViews = (): {
