@@ -1,29 +1,27 @@
 import React, { useEffect, useState } from 'react'
 import { AppContext } from '../context/context';
-import logo from '../logo.svg';
 import { ChaptersDetail } from '../types/Details';
-import { kuralList } from '../Util/MenuDrawerDataHelper';
 import KuralList from './list/KuralList';
 import { usePagination } from './usePagination';
 
 const KuralDashboard = () => {
     const { state } = React.useContext(AppContext);
-    const [page, setPage] = useState<ChaptersDetail>()
+    const [pageDetails, setPageDetails] = useState<ChaptersDetail>()
     const totalPage = state?.products?.sectionDetail?.chapters?.detail?.length
 
     const { paginationView, selectedPage } = usePagination({ count: totalPage })
 
     useEffect(() => {
-        const pageNumber = state?.products?.sectionDetail?.chapters?.detail[selectedPage - 1]
-        setPage(pageNumber)
-    }, [selectedPage])
+        const pageDetails = state?.products?.sectionDetail?.chapters?.detail[selectedPage - 1]
+        setPageDetails(pageDetails)
+    }, [state, selectedPage])
 
-    if (page) {
+    if (pageDetails) {
         return (
             <div>
                 <header className="App-header">
-                    <KuralList start={page.start} end={page.end} />
                     {paginationView}
+                    <KuralList start={pageDetails.start} end={pageDetails.end} />
                 </header>
 
             </div>

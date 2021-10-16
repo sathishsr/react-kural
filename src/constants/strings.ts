@@ -1,3 +1,3 @@
-export const ToolBarStrings ={
-    titleHeader:'Thirukkural'
+export const ToolBarStrings = {
+    titleHeader: 'திருக்குறள்'
 }

@@ -26,5 +26,5 @@ export const filterSections = (number: number) => {
 }
 
 export const kuralList = (start: number, end: number) => {
-    return mockKural.slice(start, end)
+    return mockKural.slice(start - 1, end)
 }

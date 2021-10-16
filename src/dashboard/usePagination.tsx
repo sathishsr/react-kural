@@ -1,6 +1,6 @@
 import Paper from '@material-ui/core/Paper/Paper';
 import Pagination from '@material-ui/lab/Pagination';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { usePaginationStyles } from './usePaginationStyles';
 
 interface IPaginationProps {
@@ -11,14 +11,20 @@ export const usePagination = (props: IPaginationProps): { paginationView: React.
     const [selectedPage, setSelectedPage] = useState<number>(1)
     const classes = usePaginationStyles()
 
+    // Reset selectedPage count when screen refreshes
+    useEffect(() => {
+        setSelectedPage(1)
+    }, [count])
+
     const onChange = useCallback(
         (event, page: number) => {
             setSelectedPage(page)
+            console.log('SELECTED_PAGE:::', selectedPage)
         },
         [count],
     )
-
-    const paginationView = useMemo(() => renderPaginationView(count, onChange, classes, selectedPage), [count])
+    console.log('SELECTED_PAGE OUT:::', selectedPage)
+    const paginationView = useMemo(() => renderPaginationView(count, onChange, classes, selectedPage), [count, selectedPage])
     return { paginationView, selectedPage }
 }
 

@@ -34,6 +34,7 @@ export const useToolBarStyles = makeStyles((theme: Theme) =>
       width: drawerWidth,
     },
     content: {
+      marginLeft: drawerWidth,
       flexGrow: 1,
       padding: theme.spacing(3),
     },

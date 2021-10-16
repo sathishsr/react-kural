@@ -3,16 +3,15 @@ import { makeStyles, Theme, createStyles } from "@material-ui/core";
 export const useKuralListStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {
-            width: "100%",
-            maxWidth: 360,
-            backgroundColor: "#282c34",
-            position: "relative",
-            display: 'flex',
-            flexDirection: 'column',
+            overflow: 'hidden',
+
 
         },
         listSection: {
-            backgroundColor: "inherit",
+            backgroundColor: "orange",
+        },
+        active: {
+            backgroundColor: "red"
         },
         ul: {
             display: 'flex',
@@ -26,6 +25,7 @@ export const useKuralListStyles = makeStyles((theme: Theme) =>
             /* To change the font, use the fontFamily rule */
         },
         listPage: {
+            width: 100,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'start',

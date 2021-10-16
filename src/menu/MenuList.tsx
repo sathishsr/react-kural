@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { createStyles, Theme, makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
@@ -32,12 +32,18 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
+interface selectedIndex {
+  sectionIndex: number,
+  itemIndex: number
+}
+
 export default function PinnedSubheaderList() {
   const classes = useStyles();
   const { state, dispatch } = React.useContext(AppContext);
+  const [selectedSection, setSelectedSection] = useState<selectedIndex>({ itemIndex: 0, sectionIndex: 0 })
   return (
     <List className={classes.root} subheader={<li />}>
-      {filterMenuTitle().map((data) => (
+      {filterMenuTitle().map((data, sectionIndex) => (
         <li key={`section-${data?.number}`} className={classes.listSection}>
           <ul className={classes.ul}>
             <ListSubheader
@@ -47,12 +53,14 @@ export default function PinnedSubheaderList() {
               {data?.name}
             </ListSubheader>
             {data?.chapterGroup !== undefined &&
-              data?.chapterGroup.map((item) => (
+              data?.chapterGroup.map((item, itemIndex) => (
                 <ListItem
                   key={`item-${item.name}`}
+                  selected={(selectedSection.itemIndex === itemIndex && selectedSection.sectionIndex === sectionIndex)}
                   button
                   onClick={() => {
                     if (item) {
+                      setSelectedSection({ sectionIndex, itemIndex })
                       dispatch({ type: Types.Create, payload: { sectionDetail: item, selected: true } })
                     }
                   }}
