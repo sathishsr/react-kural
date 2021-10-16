@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/thirukkural/static/css/main.48e2d3d9.chunk.css",
+    "main.js": "/thirukkural/static/js/main.3b06e301.chunk.js",
+    "main.js.map": "/thirukkural/static/js/main.3b06e301.chunk.js.map",
+    "runtime-main.js": "/thirukkural/static/js/runtime-main.070493f5.js",
+    "runtime-main.js.map": "/thirukkural/static/js/runtime-main.070493f5.js.map",
+    "static/js/2.13b74bbb.chunk.js": "/thirukkural/static/js/2.13b74bbb.chunk.js",
+    "static/js/2.13b74bbb.chunk.js.map": "/thirukkural/static/js/2.13b74bbb.chunk.js.map",
+    "static/js/3.4f7ab4f1.chunk.js": "/thirukkural/static/js/3.4f7ab4f1.chunk.js",
+    "static/js/3.4f7ab4f1.chunk.js.map": "/thirukkural/static/js/3.4f7ab4f1.chunk.js.map",
+    "index.html": "/thirukkural/index.html",
+    "static/css/main.48e2d3d9.chunk.css.map": "/thirukkural/static/css/main.48e2d3d9.chunk.css.map",
+    "static/js/2.13b74bbb.chunk.js.LICENSE.txt": "/thirukkural/static/js/2.13b74bbb.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.070493f5.js",
+    "static/js/2.13b74bbb.chunk.js",
+    "static/css/main.48e2d3d9.chunk.css",
+    "static/js/main.3b06e301.chunk.js"
+  ]
+}
