@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import './App.css';
 import ToolBarView from './toolbar/ToolbarView';
@@ -6,6 +6,7 @@ import { AppProvider } from './context/context';
 import KuralDashboard from './dashboard/KuralDashboard';
 import { createTheme, ThemeProvider } from '@material-ui/core';
 import { purple } from '@material-ui/core/colors';
+import { HashRouter, Route, Switch } from "react-router-dom";
 
 
 
@@ -48,17 +49,24 @@ function App() {
     <ThemeProvider theme={theme}>
       <AppProvider>
         <div>
-          <ToolBarView>
+          <HashRouter basename={process.env.PUBLIC_URL}>
+            <Switch>
+              <Route exact path="/" component={MainContainerView} />
+            </Switch>
 
-
-            <KuralDashboard />
-
-          </ToolBarView>
-          <div className="footer" />
+            <div className="footer" />
+          </HashRouter>
         </div>
       </AppProvider>
     </ThemeProvider>
   );
+}
+
+const MainContainerView: FC<{}> = () => {
+  return (<ToolBarView>
+    <KuralDashboard />
+
+  </ToolBarView>)
 }
 
 export default App;
