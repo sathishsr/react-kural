@@ -46,11 +46,16 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundColor: red[500],
             padding: 0,
             margin: 0,
+            // [theme.breakpoints.down('xs')]: {
+            //     marginLeft: -8,
+            // }
         },
         headerContent: {
             display: 'flex',
-            flexDirection: 'column'
-
+            flexDirection: 'column',
+            [theme.breakpoints.down('xs')]: {
+                marginLeft: -10,
+            }
         },
 
     }),
