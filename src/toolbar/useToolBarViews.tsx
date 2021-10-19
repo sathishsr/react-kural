@@ -9,7 +9,7 @@ import {
   Toolbar,
   Typography,
 } from "@material-ui/core";
-import React, { useCallback, useMemo } from "react";
+import React, { useCallback, useEffect, useMemo } from "react";
 import { useToolBarStyles } from "./useToolBarStyles";
 import MenuIcon from "@material-ui/icons/Menu";
 import MailIcon from "@material-ui/icons/Mail";
@@ -22,14 +22,21 @@ import {
   filterSections,
 } from "../Util/MenuDrawerDataHelper";
 import PinnedSubheaderList from "../menu/MenuList";
+import { AppContext } from "../context/context";
 
 export const useToolBarViews = (): {
   mobileOpen: boolean;
   appBarView: React.ReactElement;
   sideMenu: React.ReactElement;
 } => {
+  const { state } = React.useContext(AppContext);
+
   const classes = useToolBarStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  useEffect(() => {
+    setMobileOpen(!state.products.selected);
+  }, [state])
 
   const handleDrawerToggle = useCallback(() => {
     setMobileOpen(!mobileOpen);

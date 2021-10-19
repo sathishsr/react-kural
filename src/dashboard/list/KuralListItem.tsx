@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) =>
             transform: 'rotate(180deg)',
         },
         avatar: {
-            backgroundColor: red[500],
+            // backgroundColor: red[500],
             padding: 0,
             margin: 0,
             // [theme.breakpoints.down('xs')]: {
@@ -56,6 +56,11 @@ const useStyles = makeStyles((theme: Theme) =>
             [theme.breakpoints.down('xs')]: {
                 marginLeft: -10,
             }
+        },
+        cardContent: {
+            display: 'flex',
+            flexDirection: 'row',
+
         },
 
     }),
@@ -99,10 +104,20 @@ export const KuralListItem = (props: Props) => {
                 title={title()}
             />
 
-            <CardContent>
+            <CardContent className={classes.cardContent}>
                 <Typography variant="body2" color="textSecondary">
                     {data.mv}
                 </Typography>
+                <IconButton
+                    className={clsx(classes.expand, {
+                        [classes.expandOpen]: expanded,
+                    })}
+                    onClick={handleExpandClick}
+                    aria-expanded={expanded}
+                    aria-label="show more"
+                >
+                    <ExpandMoreIcon />
+                </IconButton>
             </CardContent>
             {/* <CardActions >
                 <IconButton

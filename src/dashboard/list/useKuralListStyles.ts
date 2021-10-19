@@ -7,20 +7,12 @@ export const useKuralListStyles = makeStyles((theme: Theme) =>
 
 
         },
-        listSection: {
-            backgroundColor: "orange",
-        },
-        active: {
-            backgroundColor: "red"
-        },
         ul: {
             display: 'flex',
             flexDirection: 'column',
-            backgroundColor: "inherit",
             padding: 0,
         },
         listSubHeaderRoot: {
-            backgroundColor: "#282c34",
             color: "#252525",
             /* To change the font, use the fontFamily rule */
         },

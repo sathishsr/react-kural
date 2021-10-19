@@ -7,6 +7,7 @@ import ListSubheader from "@material-ui/core/ListSubheader";
 import { filterMenuTitle } from "../Util/MenuDrawerDataHelper";
 import { AppContext } from "../context/context";
 import { Types } from "../context/reducers";
+import { grey, lightBlue } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,15 +21,19 @@ const useStyles = makeStyles((theme: Theme) =>
     listSection: {
       backgroundColor: "inherit",
     },
+
     ul: {
       backgroundColor: "inherit",
       padding: 0,
     },
     listSubHeaderRoot: {
-      backgroundColor: "#E4E4E4",
+      backgroundColor: grey[300],
       color: "#252525",
       /* To change the font, use the fontFamily rule */
-    },
+    }, active: {
+      backgroundColor: lightBlue[500]
+    }
+
   })
 );
 
@@ -57,6 +62,7 @@ export default function PinnedSubheaderList() {
                 <ListItem
                   key={`item-${item.name}`}
                   selected={(selectedSection.itemIndex === itemIndex && selectedSection.sectionIndex === sectionIndex)}
+                  classes={{ selected: classes.active }}
                   button
                   onClick={() => {
                     if (item) {

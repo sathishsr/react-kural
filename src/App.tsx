@@ -4,25 +4,29 @@ import './App.css';
 import ToolBarView from './toolbar/ToolbarView';
 import { AppProvider } from './context/context';
 import KuralDashboard from './dashboard/KuralDashboard';
-import { createTheme, ThemeProvider } from '@material-ui/core';
-import { purple } from '@material-ui/core/colors';
+import { createStyles, createTheme, makeStyles, Theme, ThemeOptions, ThemeProvider } from '@material-ui/core';
+import { purple, lightBlue } from '@material-ui/core/colors';
 import { HashRouter, Route, Switch } from "react-router-dom";
 
 
-
 const paletteTheme = createTheme({
+  overrides: {
+    MuiListItem: {
+      root: {
+        "&$selected": {
+          backgroundColor: lightBlue[300],
+
+        },
+      },
+    }
+  },
   palette: {
+    type: 'light',
     primary: {
-      light: 'red',
-      main: 'orange',
-      dark: 'blue',
-      contrastText: 'black',
+      main: '#3f51b5',
     },
     secondary: {
-      light: '#f0e6e6',
-      main: '#c93434',
-      dark: '#3c3c3c',
-      contrastText: '#000',
+      main: '#f50057',
     },
   },
 });
@@ -43,10 +47,10 @@ theme.typography.body2 = {
 
 
 const appTheme = createTheme(theme, paletteTheme)
-
 function App() {
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={appTheme}>
       <AppProvider>
         <div>
           <HashRouter basename={process.env.PUBLIC_URL}>
