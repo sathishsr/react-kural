@@ -20,7 +20,7 @@ The `scope` provides additional contextual information.
 * Allowed Scopes depends on the specific project
 * Don't use issue identifiers as scopes
 
-### Subject
+### Description
 The `subject` contains a succinct description of the change.
 * Is a **mandatory** part of the format
 * Use the imperative, present tense: "change" not "changed" nor "changes"
