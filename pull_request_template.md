@@ -21,7 +21,7 @@ The `scope` provides additional contextual information.
 * Don't use issue identifiers as scopes
 
 ### Description
-The `subject` contains a succinct description of the change.
+The `description` contains a succinct description of the change.
 * Is a **mandatory** part of the format
 * Use the imperative, present tense: "change" not "changed" nor "changes"
 * Don't capitalize the first letter
