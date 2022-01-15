@@ -1,6 +1,6 @@
 ## Description
 
-Provide a summary of the change and which issue is fixed.
+[Ticket Number]: Provide a summary of the change and which issue is fixed.
 
 Fixes # (Card Number#)
 
